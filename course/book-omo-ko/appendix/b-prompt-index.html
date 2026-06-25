@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>부록 B: 에이전트, 훅, 도구 인덱스 | 오마오 플러그인 하니스 해부</title>
+    <meta name="description" content="oh-my-openagent 포크를 현재 소스와 함께 읽는 한국어 온라인 책" />
+    <link rel="stylesheet" href="../assets/styles.css" />
+  </head>
+  <body>
+    <div class="layout">
+
+<aside class="sidebar" aria-label="책 목차">
+  <div class="brand">
+    <p class="eyebrow">OMO Source Book</p>
+    <a class="brand-title" href="../index.html">오마오 플러그인 하니스 해부</a>
+    <p class="brand-subtitle">책의 관점을 유지하되 현재 fork의 패키지 리팩터링과 실제 소스 참조를 함께 제공합니다.</p>
+  </div>
+  <nav class="toc-nav">
+    <a class="toc-link" href="../index.html">목차</a>
+    <section class="toc-section"><h2>시작</h2><div class="toc-links"><a class="toc-link" href="../preface.html">서문</a></div></section><section class="toc-section"><h2>제1부: 플러그인은 어디에 시스템 경계를 두는가</h2><div class="toc-links"><a class="toc-link" href="../part1/index.html">부 도입: 코어 위에 얹는 하니스 읽기</a><a class="toc-link" href="../part1/ch01.html">1장: 오마오의 전체 시스템 토폴로지</a><a class="toc-link" href="../part1/ch02.html">2장: 플러그인 엔트리포인트와 5단계 부트스트랩</a><a class="toc-link" href="../part1/ch03.html">3장: 매니저 계층과 런타임 상태</a><a class="toc-link" href="../part1/ch04.html">4장: 도구 레지스트리와 실행 표면</a></div></section><section class="toc-section"><h2>제2부: 대화를 어떻게 정책과 문맥으로 바꾸는가</h2><div class="toc-links"><a class="toc-link" href="../part2/index.html">부 도입: 메시지 바깥의 상태를 키우기</a><a class="toc-link" href="../part2/ch05.html">5장: JSONC 설정 병합과 마이그레이션</a><a class="toc-link" href="../part2/ch06.html">6장: 에이전트 생성과 모델 해상도</a><a class="toc-link" href="../part2/ch07.html">7장: 카테고리, 위임, 하위 에이전트 라우팅</a><a class="toc-link" href="../part2/ch08.html">8장: 컨텍스트 주입과 컴팩션 보존</a><a class="toc-link" href="../part2/ch09.html">9장: continuation과 보조 세션 운영</a></div></section><section class="toc-section"><h2>제3부: OpenCode 표면을 어떻게 플러그인으로 확장하는가</h2><div class="toc-links"><a class="toc-link" href="../part3/index.html">부 도입: 훅 핸들러를 제품 표면으로 읽기</a><a class="toc-link" href="../part3/ch10.html">10장: config 핸들러의 6단계 합성 파이프라인</a><a class="toc-link" href="../part3/ch11.html">11장: chat.message, chat.params, chat.headers</a><a class="toc-link" href="../part3/ch12.html">12장: event 핸들러와 세션 생명주기</a><a class="toc-link" href="../part3/ch13.html">13장: CLI install, run, doctor</a></div></section><section class="toc-section"><h2>제4부: 확장을 어떻게 계약으로 나누는가</h2><div class="toc-links"><a class="toc-link" href="../part4/index.html">부 도입: 에이전트, 스킬, MCP, 명령을 섞지 않기</a><a class="toc-link" href="../part4/ch14.html">14장: 에이전트 확장 계약</a><a class="toc-link" href="../part4/ch15.html">15장: 도구 확장 계약</a><a class="toc-link" href="../part4/ch16.html">16장: 스킬을 지식 계층으로 다루기</a><a class="toc-link" href="../part4/ch17.html">17장: 3계층 MCP와 OAuth</a><a class="toc-link" href="../part4/ch18.html">18장: Claude Code 호환성 브리지</a></div></section><section class="toc-section"><h2>제5부: 위험한 실행을 어떻게 통제 가능한 UX로 바꾸는가</h2><div class="toc-links"><a class="toc-link" href="../part5/index.html">부 도입: 안전성을 플러그인 훅의 상태 모델로 보기</a><a class="toc-link" href="../part5/ch19.html">19장: 훅 티어와 guardrail 아키텍처</a><a class="toc-link" href="../part5/ch20.html">20장: Hashline edit와 파일 수정 의미론</a><a class="toc-link" href="../part5/ch21.html">21장: 백그라운드 에이전트와 tmux 격리</a><a class="toc-link" href="../part5/ch22.html">22장: 모델 fallback과 runtime fallback</a><a class="toc-link" href="../part5/ch23.html">23장: 로그, toast, telemetry, 관찰성</a></div></section><section class="toc-section"><h2>제6부: 복잡한 서브시스템을 어디에 가두는가</h2><div class="toc-links"><a class="toc-link" href="../part6/index.html">부 도입: 플러그인의 예외를 별도 모듈에 격리하기</a><a class="toc-link" href="../part6/ch24.html">24장: LSP와 AST grep 코드 인텔리전스</a><a class="toc-link" href="../part6/ch25.html">25장: 명령, task system, workflow 템플릿</a><a class="toc-link" href="../part6/ch26.html">26장: 모델 capability와 provider 데이터</a><a class="toc-link" href="../part6/ch27.html">27장: 스키마, 마이그레이션, 설정 진단</a><a class="toc-link" href="../part6/ch28.html">28장: 빌드, 바이너리, 배포 표면</a></div></section><section class="toc-section"><h2>제7부: 무엇을 추출해 자기 플러그인으로 옮길 것인가</h2><div class="toc-links"><a class="toc-link" href="../part7/index.html">부 도입: 저장소 해설을 플러그인 설계 청사진으로 바꾸기</a><a class="toc-link" href="../part7/ch29.html">29장: 오마오가 플러그인 하니스로서 잘하는 것</a><a class="toc-link" href="../part7/ch30.html">30장: 오마오 패턴으로 나만의 OpenCode 플러그인 설계하기</a></div></section><section class="toc-section"><h2>부록</h2><div class="toc-links"><a class="toc-link" href="a-file-index.html">부록 A: 주요 파일 인덱스</a><a class="toc-link active" href="b-prompt-index.html">부록 B: 에이전트, 훅, 도구 인덱스</a><a class="toc-link" href="c-config-crosswalk.html">부록 C: 구성 크로스워크</a><a class="toc-link" href="d-reading-order.html">부록 D: 추천 독서 경로</a><a class="toc-link" href="e-build-recipes.html">부록 E: 빌드와 테스트 명령 모음</a><a class="toc-link" href="f-e2e-traces.html">부록 F: 엔드투엔드 사례 추적</a><a class="toc-link" href="g-auth-sharing.html">부록 G: 인증, MCP, 외부 서비스</a><a class="toc-link" href="h-glossary.html">부록 H: 용어집</a></div></section>
+  </nav>
+  <div class="meta-panel">
+    <p>Fork: <a href="https://github.com/nfbs2000/speaky-oh-my-openagent">nfbs2000/speaky-oh-my-openagent</a></p>
+    <p>Latest source: <a href="https://github.com/nfbs2000/speaky-oh-my-openagent/tree/dev">dev</a></p>
+    <p>Edition snapshot: <a href="https://github.com/nfbs2000/speaky-oh-my-openagent/tree/effa8153ac03076bca9ef860ab49e9eff16251f0">effa8153ac</a></p>
+  </div>
+</aside>
+
+      <main class="content">
+<article class="book-page">
+  <header class="chapter-header">
+    <p class="eyebrow">부록</p>
+    <h1>부록 B: 에이전트, 훅, 도구 인덱스</h1>
+    <p class="chapter-meta">온라인판은 책의 질문과 해석 순서를 유지하면서 현재 fork의 실제 소스 경로와 링크를 함께 제공합니다.</p>
+  </header>
+  
+<section class="fork-note">
+  <h2>현재 fork 기준 보정</h2>
+  <p>이 온라인판은 원고의 관점과 장 구성을 유지하지만, 현재 <code>speaky-oh-my-openagent</code> 포크의 리팩터링을 기준으로 소스 경로를 보정합니다. 원고의 오래된 <code>src/...</code> 참조는 가능한 경우 <code>packages/omo-opencode/src/...</code>로 해석합니다.</p>
+  <p>루트 <code>src/</code>는 더 이상 canonical source tree가 아니며, OpenCode 어댑터는 <code>packages/omo-opencode/src/</code>, Codex Light edition은 <code>packages/omo-codex/</code>, 공유 core는 <code>packages/*-core/</code>에 분리되어 있습니다.</p>
+</section>
+
+  <div class="markdown-body"><h2 id="주요-에이전트">주요 에이전트</h2>
+<ul><li><code>sisyphus</code>: orchestration과 위임 중심 agent</li><li><code>hephaestus</code>: 구현 중심 agent</li><li><code>oracle</code>: 분석과 판단 중심 agent</li><li><code>librarian</code>: 코드베이스 탐색과 정보 수집</li><li><code>explore</code>: 탐색 전용 agent</li><li><code>atlas</code>: 계획, 진행, continuation 추적</li><li><code>prometheus</code>: 계획과 품질 기준</li><li><code>metis</code>: 전략과 조율</li><li><code>momus</code>: 리뷰와 비판적 점검</li><li><code>multimodal-looker</code>: 이미지와 multimodal 입력</li><li><code>sisyphus-junior</code>: 경량 하위 작업</li></ul>
+<h2 id="훅-티어">훅 티어</h2>
+<ul><li>session: context window, recovery, notification, think mode, fallback, update, start-work</li><li>tool guard: comment checker, output truncator, rules injector, write guard, hashline enhancer</li><li>transform: Claude Code hooks, keyword detector, context injector, thinking block validator, tool pair validator</li><li>continuation: stop guard, compaction injector, todo preserver, todo enforcer, background notification, atlas</li><li>skill: category skill reminder, auto slash command</li></ul>
+<h2 id="주요-도구">주요 도구</h2>
+<ul><li>코드 탐색: <code>glob</code>, <code>grep</code>, <code>ast_grep_search</code>, <code>lsp_symbols</code>, <code>lsp_goto_definition</code></li><li>코드 수정: <code>edit</code>, <code>ast_grep_replace</code>, <code>lsp_rename</code></li><li>에이전트 실행: <code>call_omo_agent</code>, <code>task</code></li><li>백그라운드: <code>background_output</code>, <code>background_cancel</code></li><li>세션: <code>session_list</code>, <code>session_read</code>, <code>session_search</code>, <code>session_info</code></li><li>스킬: <code>skill</code>, <code>skill_mcp</code></li><li>task system: <code>task_create</code>, <code>task_get</code>, <code>task_list</code>, <code>task_update</code></li><li>shell: <code>interactive_bash</code></li></ul>
+<h2 id="읽는-순서">읽는 순서</h2>
+<p>에이전트는 <a class="source-code" href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/dev/packages/omo-opencode/src/agents/builtin-agents.ts"><code>src/agents/builtin-agents.ts</code></a>에서 시작한다. 훅은 <a class="source-code" href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/dev/packages/omo-opencode/src/create-hooks.ts"><code>src/create-hooks.ts</code></a>에서 시작해 <a class="source-code" href="https://github.com/nfbs2000/speaky-oh-my-openagent/tree/dev/packages/omo-opencode/src/plugin/hooks"><code>src/plugin/hooks/create-*-hooks.ts</code></a>로 내려간다. 도구는 <a class="source-code" href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/dev/packages/omo-opencode/src/plugin/tool-registry.ts"><code>src/plugin/tool-registry.ts</code></a>에서 최종 노출 목록을 확인한다.</p></div>
+  
+<section class="source-references" id="source-references">
+  <h2>이 장의 실제 소스 참조</h2>
+  <p>본문의 코드 경로 중 현재 fork에 존재하는 항목만 실제 GitHub 소스로 연결했습니다. <code>Latest</code>는 <code>dev</code>, <code>Edition</code>은 이 온라인판 생성 시점의 snapshot입니다.</p>
+  
+<div class="table-wrap source-table">
+  <table>
+    <thead><tr><th>원고 경로</th><th>현재 fork 경로</th><th>링크</th></tr></thead>
+    <tbody><tr><td><code>src/agents/builtin-agents.ts</code></td><td><code>packages/omo-opencode/src/agents/builtin-agents.ts</code></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/dev/packages/omo-opencode/src/agents/builtin-agents.ts">Latest</a></td></tr><tr><td><code>src/create-hooks.ts</code></td><td><code>packages/omo-opencode/src/create-hooks.ts</code></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/dev/packages/omo-opencode/src/create-hooks.ts">Latest</a></td></tr><tr><td><code>src/plugin/hooks</code></td><td><code>packages/omo-opencode/src/plugin/hooks</code></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/tree/dev/packages/omo-opencode/src/plugin/hooks">Latest</a></td></tr><tr><td><code>src/plugin/tool-registry.ts</code></td><td><code>packages/omo-opencode/src/plugin/tool-registry.ts</code></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/dev/packages/omo-opencode/src/plugin/tool-registry.ts">Latest</a></td></tr></tbody>
+  </table>
+</div>
+
+  
+<div class="table-wrap source-table">
+  <table>
+    <thead><tr><th>경로</th><th>Latest</th><th>Edition</th></tr></thead>
+    <tbody><tr><td><code>packages/omo-opencode/src/agents/builtin-agents.ts</code></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/dev/packages/omo-opencode/src/agents/builtin-agents.ts">Latest</a></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/effa8153ac03076bca9ef860ab49e9eff16251f0/packages/omo-opencode/src/agents/builtin-agents.ts">Edition</a></td></tr><tr><td><code>packages/omo-opencode/src/create-hooks.ts</code></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/dev/packages/omo-opencode/src/create-hooks.ts">Latest</a></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/effa8153ac03076bca9ef860ab49e9eff16251f0/packages/omo-opencode/src/create-hooks.ts">Edition</a></td></tr><tr><td><code>packages/omo-opencode/src/plugin/hooks</code></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/tree/dev/packages/omo-opencode/src/plugin/hooks">Latest</a></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/tree/effa8153ac03076bca9ef860ab49e9eff16251f0/packages/omo-opencode/src/plugin/hooks">Edition</a></td></tr><tr><td><code>packages/omo-opencode/src/plugin/tool-registry.ts</code></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/dev/packages/omo-opencode/src/plugin/tool-registry.ts">Latest</a></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/effa8153ac03076bca9ef860ab49e9eff16251f0/packages/omo-opencode/src/plugin/tool-registry.ts">Edition</a></td></tr></tbody>
+  </table>
+</div>
+
+  
+</section>
+
+  <nav class="chapter-nav" aria-label="장 이동"><a class="nav-card" href="a-file-index.html"><span>이전</span><strong>부록 A: 주요 파일 인덱스</strong></a><a class="nav-card" href="c-config-crosswalk.html"><span>다음</span><strong>부록 C: 구성 크로스워크</strong></a></nav>
+</article>
+</main>
+    </div>
+    <script type="module">
+      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: "base",
+        themeVariables: {
+          background: "#fffdf8",
+          primaryColor: "#f1eee6",
+          primaryTextColor: "#191817",
+          primaryBorderColor: "#d9d1c3",
+          lineColor: "#1f6f8b",
+          secondaryColor: "#e8f0ec",
+          tertiaryColor: "#fff6ed",
+          fontFamily: "Inter, system-ui, sans-serif"
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>12장: event 핸들러와 세션 생명주기 | 오마오 플러그인 하니스 해부</title>
+    <meta name="description" content="oh-my-openagent 포크를 현재 소스와 함께 읽는 한국어 온라인 책" />
+    <link rel="stylesheet" href="../assets/styles.css" />
+  </head>
+  <body>
+    <div class="layout">
+
+<aside class="sidebar" aria-label="책 목차">
+  <div class="brand">
+    <p class="eyebrow">OMO Source Book</p>
+    <a class="brand-title" href="../index.html">오마오 플러그인 하니스 해부</a>
+    <p class="brand-subtitle">책의 관점을 유지하되 현재 fork의 패키지 리팩터링과 실제 소스 참조를 함께 제공합니다.</p>
+  </div>
+  <nav class="toc-nav">
+    <a class="toc-link" href="../index.html">목차</a>
+    <section class="toc-section"><h2>시작</h2><div class="toc-links"><a class="toc-link" href="../preface.html">서문</a></div></section><section class="toc-section"><h2>제1부: 플러그인은 어디에 시스템 경계를 두는가</h2><div class="toc-links"><a class="toc-link" href="../part1/index.html">부 도입: 코어 위에 얹는 하니스 읽기</a><a class="toc-link" href="../part1/ch01.html">1장: 오마오의 전체 시스템 토폴로지</a><a class="toc-link" href="../part1/ch02.html">2장: 플러그인 엔트리포인트와 5단계 부트스트랩</a><a class="toc-link" href="../part1/ch03.html">3장: 매니저 계층과 런타임 상태</a><a class="toc-link" href="../part1/ch04.html">4장: 도구 레지스트리와 실행 표면</a></div></section><section class="toc-section"><h2>제2부: 대화를 어떻게 정책과 문맥으로 바꾸는가</h2><div class="toc-links"><a class="toc-link" href="../part2/index.html">부 도입: 메시지 바깥의 상태를 키우기</a><a class="toc-link" href="../part2/ch05.html">5장: JSONC 설정 병합과 마이그레이션</a><a class="toc-link" href="../part2/ch06.html">6장: 에이전트 생성과 모델 해상도</a><a class="toc-link" href="../part2/ch07.html">7장: 카테고리, 위임, 하위 에이전트 라우팅</a><a class="toc-link" href="../part2/ch08.html">8장: 컨텍스트 주입과 컴팩션 보존</a><a class="toc-link" href="../part2/ch09.html">9장: continuation과 보조 세션 운영</a></div></section><section class="toc-section"><h2>제3부: OpenCode 표면을 어떻게 플러그인으로 확장하는가</h2><div class="toc-links"><a class="toc-link" href="index.html">부 도입: 훅 핸들러를 제품 표면으로 읽기</a><a class="toc-link" href="ch10.html">10장: config 핸들러의 6단계 합성 파이프라인</a><a class="toc-link" href="ch11.html">11장: chat.message, chat.params, chat.headers</a><a class="toc-link active" href="ch12.html">12장: event 핸들러와 세션 생명주기</a><a class="toc-link" href="ch13.html">13장: CLI install, run, doctor</a></div></section><section class="toc-section"><h2>제4부: 확장을 어떻게 계약으로 나누는가</h2><div class="toc-links"><a class="toc-link" href="../part4/index.html">부 도입: 에이전트, 스킬, MCP, 명령을 섞지 않기</a><a class="toc-link" href="../part4/ch14.html">14장: 에이전트 확장 계약</a><a class="toc-link" href="../part4/ch15.html">15장: 도구 확장 계약</a><a class="toc-link" href="../part4/ch16.html">16장: 스킬을 지식 계층으로 다루기</a><a class="toc-link" href="../part4/ch17.html">17장: 3계층 MCP와 OAuth</a><a class="toc-link" href="../part4/ch18.html">18장: Claude Code 호환성 브리지</a></div></section><section class="toc-section"><h2>제5부: 위험한 실행을 어떻게 통제 가능한 UX로 바꾸는가</h2><div class="toc-links"><a class="toc-link" href="../part5/index.html">부 도입: 안전성을 플러그인 훅의 상태 모델로 보기</a><a class="toc-link" href="../part5/ch19.html">19장: 훅 티어와 guardrail 아키텍처</a><a class="toc-link" href="../part5/ch20.html">20장: Hashline edit와 파일 수정 의미론</a><a class="toc-link" href="../part5/ch21.html">21장: 백그라운드 에이전트와 tmux 격리</a><a class="toc-link" href="../part5/ch22.html">22장: 모델 fallback과 runtime fallback</a><a class="toc-link" href="../part5/ch23.html">23장: 로그, toast, telemetry, 관찰성</a></div></section><section class="toc-section"><h2>제6부: 복잡한 서브시스템을 어디에 가두는가</h2><div class="toc-links"><a class="toc-link" href="../part6/index.html">부 도입: 플러그인의 예외를 별도 모듈에 격리하기</a><a class="toc-link" href="../part6/ch24.html">24장: LSP와 AST grep 코드 인텔리전스</a><a class="toc-link" href="../part6/ch25.html">25장: 명령, task system, workflow 템플릿</a><a class="toc-link" href="../part6/ch26.html">26장: 모델 capability와 provider 데이터</a><a class="toc-link" href="../part6/ch27.html">27장: 스키마, 마이그레이션, 설정 진단</a><a class="toc-link" href="../part6/ch28.html">28장: 빌드, 바이너리, 배포 표면</a></div></section><section class="toc-section"><h2>제7부: 무엇을 추출해 자기 플러그인으로 옮길 것인가</h2><div class="toc-links"><a class="toc-link" href="../part7/index.html">부 도입: 저장소 해설을 플러그인 설계 청사진으로 바꾸기</a><a class="toc-link" href="../part7/ch29.html">29장: 오마오가 플러그인 하니스로서 잘하는 것</a><a class="toc-link" href="../part7/ch30.html">30장: 오마오 패턴으로 나만의 OpenCode 플러그인 설계하기</a></div></section><section class="toc-section"><h2>부록</h2><div class="toc-links"><a class="toc-link" href="../appendix/a-file-index.html">부록 A: 주요 파일 인덱스</a><a class="toc-link" href="../appendix/b-prompt-index.html">부록 B: 에이전트, 훅, 도구 인덱스</a><a class="toc-link" href="../appendix/c-config-crosswalk.html">부록 C: 구성 크로스워크</a><a class="toc-link" href="../appendix/d-reading-order.html">부록 D: 추천 독서 경로</a><a class="toc-link" href="../appendix/e-build-recipes.html">부록 E: 빌드와 테스트 명령 모음</a><a class="toc-link" href="../appendix/f-e2e-traces.html">부록 F: 엔드투엔드 사례 추적</a><a class="toc-link" href="../appendix/g-auth-sharing.html">부록 G: 인증, MCP, 외부 서비스</a><a class="toc-link" href="../appendix/h-glossary.html">부록 H: 용어집</a></div></section>
+  </nav>
+  <div class="meta-panel">
+    <p>Fork: <a href="https://github.com/nfbs2000/speaky-oh-my-openagent">nfbs2000/speaky-oh-my-openagent</a></p>
+    <p>Latest source: <a href="https://github.com/nfbs2000/speaky-oh-my-openagent/tree/dev">dev</a></p>
+    <p>Edition snapshot: <a href="https://github.com/nfbs2000/speaky-oh-my-openagent/tree/effa8153ac03076bca9ef860ab49e9eff16251f0">effa8153ac</a></p>
+  </div>
+</aside>
+
+      <main class="content">
+<article class="book-page">
+  <header class="chapter-header">
+    <p class="eyebrow">제3부: OpenCode 표면을 어떻게 플러그인으로 확장하는가</p>
+    <h1>12장: event 핸들러와 세션 생명주기</h1>
+    <p class="chapter-meta">온라인판은 책의 질문과 해석 순서를 유지하면서 현재 fork의 실제 소스 경로와 링크를 함께 제공합니다.</p>
+  </header>
+  
+<section class="fork-note">
+  <h2>현재 fork 기준 보정</h2>
+  <p>이 온라인판은 원고의 관점과 장 구성을 유지하지만, 현재 <code>speaky-oh-my-openagent</code> 포크의 리팩터링을 기준으로 소스 경로를 보정합니다. 원고의 오래된 <code>src/...</code> 참조는 가능한 경우 <code>packages/omo-opencode/src/...</code>로 해석합니다.</p>
+  <p>루트 <code>src/</code>는 더 이상 canonical source tree가 아니며, OpenCode 어댑터는 <code>packages/omo-opencode/src/</code>, Codex Light edition은 <code>packages/omo-codex/</code>, 공유 core는 <code>packages/*-core/</code>에 분리되어 있습니다.</p>
+</section>
+
+  <div class="markdown-body"><p>OpenCode의 <code>event</code> handler는 오마오가 세션 생명주기를 운영 상태로 바꾸는 지점이다. 세션 생성, 삭제, idle, error는 단순 알림이 아니라 manager와 외부 통합을 움직이는 신호다.</p>
+<h2 id="왜-중요한가">왜 중요한가</h2>
+<p>하위 에이전트, tmux pane, fallback, first message gate는 모두 세션의 생성과 종료를 알아야 한다. event handler가 없다면 플러그인은 &quot;현재 어떤 작업이 살아 있는지&quot;를 안정적으로 추적할 수 없다.</p>
+<h2 id="소스-앵커">소스 앵커</h2>
+<ul><li><a class="source-code" href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/dev/packages/omo-opencode/src/plugin/event.ts"><code>src/plugin/event.ts</code></a></li><li><a class="source-code" href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/dev/packages/omo-opencode/src/create-managers.ts"><code>src/create-managers.ts</code></a></li><li><a class="source-code" href="https://github.com/nfbs2000/speaky-oh-my-openagent/tree/dev/packages/omo-opencode/src/features/tmux-subagent"><code>src/features/tmux-subagent/</code></a></li><li><a class="source-code" href="https://github.com/nfbs2000/speaky-oh-my-openagent/tree/dev/packages/omo-opencode/src/hooks/runtime-fallback"><code>src/hooks/runtime-fallback/</code></a></li><li><code>src/shared/first-message-variant</code></li></ul>
+<h2 id="생명주기-흐름">생명주기 흐름</h2>
+<div class="diagram"><pre class="mermaid">flowchart TD
+  EVT[&quot;OpenCode event&quot;]
+  GATE[&quot;first message gate&quot;]
+  TMUX[&quot;tmux session manager&quot;]
+  BG[&quot;background manager&quot;]
+  FALL[&quot;runtime fallback&quot;]
+
+  EVT --&gt; GATE
+  EVT --&gt; TMUX
+  EVT --&gt; BG
+  EVT --&gt; FALL</pre></div>
+<h2 id="핵심-메커니즘">핵심 메커니즘</h2>
+<p>세션 생성 이벤트는 first-message variant gate에 기록된다. 이 정보는 첫 사용자 메시지를 다르게 처리할 수 있는 근거가 된다. 같은 이벤트가 tmux manager에도 전달되어 하위 세션과 pane 추적을 맞춘다.</p>
+<p>세션 오류는 runtime fallback과 연결된다. proactive model fallback이 <code>chat.params</code> 주변에서 작동한다면, runtime fallback은 실제 session error를 보고 반응한다. 두 fallback 시스템을 나눈 이유는 실패가 발생하는 시점과 정보가 다르기 때문이다.</p>
+<p><code>session.deleted</code>에서는 session agent, fallback chain, message cursor, background output consumption, session model, prompt params, sync subagent registry, session tools, skill MCP connection, LSP temp clients가 정리된다. 이 장의 핵심은 event handler가 알림기가 아니라 cleanup 경계라는 점이다.</p>
+<h2 id="트레이드오프">트레이드오프</h2>
+<p>event handler는 많은 기능을 연결하기 쉽다. 하지만 모든 기능이 event handler 안에 직접 들어오면 병목이 된다. 오마오는 manager와 hook에 책임을 위임하고 event handler는 라우팅 계층으로 둔다.</p>
+<h2 id="핵심-코드">핵심 코드</h2>
+<p><a class="source-code" href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/dev/packages/omo-opencode/src/plugin/event.ts"><code>src/plugin/event.ts</code></a>의 <code>session.deleted</code> cleanup은 event handler가 상태 전이 경계라는 사실을 가장 잘 보여 준다.</p>
+<pre class="code-block"><code class="language-ts">if (event.type === &quot;session.deleted&quot;) {
+  const sessionInfo = props?.info as { id?: string } | undefined
+  if (sessionInfo?.id === getMainSessionID()) {
+    setMainSession(undefined)
+  }
+
+  if (sessionInfo?.id) {
+    const wasSyncSubagentSession = syncSubagentSessions.has(sessionInfo.id)
+    clearSessionAgent(sessionInfo.id)
+    lastHandledModelErrorMessageID.delete(sessionInfo.id)
+    lastHandledRetryStatusKey.delete(sessionInfo.id)
+    lastKnownModelBySession.delete(sessionInfo.id)
+    if (modelFallback) {
+      clearPendingModelFallback(modelFallback, sessionInfo.id)
+      clearSessionFallbackChain(modelFallback, sessionInfo.id)
+    }
+    resetMessageCursor(sessionInfo.id)
+    clearBackgroundOutputConsumptionsForParentSession(sessionInfo.id)
+    clearBackgroundOutputConsumptionsForTaskSession(sessionInfo.id)
+    firstMessageVariantGate.clear(sessionInfo.id)
+    clearSessionModel(sessionInfo.id)
+    clearSessionPromptParams(sessionInfo.id)
+    syncSubagentSessions.delete(sessionInfo.id)
+    if (wasSyncSubagentSession) {
+      subagentSessions.delete(sessionInfo.id)
+    }
+    deleteSessionTools(sessionInfo.id)
+    await managers.skillMcpManager.disconnectSession(sessionInfo.id)
+    await lspManager.cleanupTempDirectoryClients()
+  }
+}</code></pre>
+<h2 id="소스-그라운딩">소스 그라운딩</h2>
+<ul><li><code>dispatchToHooks()</code>는 event hook들을 <code>runEventHookSafely()</code>로 감싼다. hook 하나가 실패해도 event handler 전체가 중단되지 않게 한다.</li><li><code>normalizeSessionStatusToIdle()</code>은 <code>session.status</code>를 synthetic <code>session.idle</code>로 바꿀 수 있고, <code>recentSyntheticIdles</code>와 <code>recentRealIdles</code>로 500ms dedupe를 수행한다.</li><li><code>session.created</code>에서 parentID가 없으면 <code>setMainSession(sessionInfo.id)</code>가 호출된다. main/subagent 구분은 이후 fallback과 cleanup 판단에 쓰인다.</li><li><code>session.deleted</code>는 <code>clearSessionAgent</code>, fallback chain 정리, message cursor reset, background output consumption 정리, first message gate clear, session model/prompt params clear, skill MCP disconnect, LSP temp client cleanup을 수행한다.</li><li><code>message.updated</code>는 user message의 provider/model을 <code>lastKnownModelBySession</code>과 <code>session-model-state</code>에 저장한다.</li><li>assistant message error, <code>session.status</code> retry, <code>session.error</code>는 모두 model fallback 진입점이 될 수 있다. provider별 오류가 항상 같은 event로 오지 않기 때문이다.</li></ul>
+<h2 id="빌더에게-남는-것">빌더에게 남는 것</h2>
+<p>세션 생명주기는 플러그인 운영성의 중심이다. 긴 작업, 외부 알림, 복구, UI toast가 있다면 event handler를 단순 log 수집기로 두지 말고 상태 전이의 관문으로 설계해야 한다.</p></div>
+  
+<section class="source-references" id="source-references">
+  <h2>이 장의 실제 소스 참조</h2>
+  <p>본문의 코드 경로 중 현재 fork에 존재하는 항목만 실제 GitHub 소스로 연결했습니다. <code>Latest</code>는 <code>dev</code>, <code>Edition</code>은 이 온라인판 생성 시점의 snapshot입니다.</p>
+  
+<div class="table-wrap source-table">
+  <table>
+    <thead><tr><th>원고 경로</th><th>현재 fork 경로</th><th>링크</th></tr></thead>
+    <tbody><tr><td><code>src/create-managers.ts</code></td><td><code>packages/omo-opencode/src/create-managers.ts</code></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/dev/packages/omo-opencode/src/create-managers.ts">Latest</a></td></tr><tr><td><code>src/features/tmux-subagent</code></td><td><code>packages/omo-opencode/src/features/tmux-subagent</code></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/tree/dev/packages/omo-opencode/src/features/tmux-subagent">Latest</a></td></tr><tr><td><code>src/hooks/runtime-fallback</code></td><td><code>packages/omo-opencode/src/hooks/runtime-fallback</code></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/tree/dev/packages/omo-opencode/src/hooks/runtime-fallback">Latest</a></td></tr><tr><td><code>src/plugin/event.ts</code></td><td><code>packages/omo-opencode/src/plugin/event.ts</code></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/dev/packages/omo-opencode/src/plugin/event.ts">Latest</a></td></tr></tbody>
+  </table>
+</div>
+
+  
+<div class="table-wrap source-table">
+  <table>
+    <thead><tr><th>경로</th><th>Latest</th><th>Edition</th></tr></thead>
+    <tbody><tr><td><code>packages/omo-opencode/src/create-managers.ts</code></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/dev/packages/omo-opencode/src/create-managers.ts">Latest</a></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/effa8153ac03076bca9ef860ab49e9eff16251f0/packages/omo-opencode/src/create-managers.ts">Edition</a></td></tr><tr><td><code>packages/omo-opencode/src/features/tmux-subagent</code></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/tree/dev/packages/omo-opencode/src/features/tmux-subagent">Latest</a></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/tree/effa8153ac03076bca9ef860ab49e9eff16251f0/packages/omo-opencode/src/features/tmux-subagent">Edition</a></td></tr><tr><td><code>packages/omo-opencode/src/hooks/runtime-fallback</code></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/tree/dev/packages/omo-opencode/src/hooks/runtime-fallback">Latest</a></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/tree/effa8153ac03076bca9ef860ab49e9eff16251f0/packages/omo-opencode/src/hooks/runtime-fallback">Edition</a></td></tr><tr><td><code>packages/omo-opencode/src/plugin/event.ts</code></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/dev/packages/omo-opencode/src/plugin/event.ts">Latest</a></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/effa8153ac03076bca9ef860ab49e9eff16251f0/packages/omo-opencode/src/plugin/event.ts">Edition</a></td></tr></tbody>
+  </table>
+</div>
+
+  
+<details class="unresolved-refs">
+  <summary>현재 fork에서 찾지 못한 참조 1개</summary>
+  <p>이 경로들은 원고에 있지만 현재 <code>nfbs2000/speaky-oh-my-openagent</code> snapshot에는 없어서 404 링크를 만들지 않았습니다.</p>
+  <ul><li><code>src/shared/first-message-variant</code></li></ul>
+</details>
+
+</section>
+
+  <nav class="chapter-nav" aria-label="장 이동"><a class="nav-card" href="ch11.html"><span>이전</span><strong>11장: chat.message, chat.params, chat.headers</strong></a><a class="nav-card" href="ch13.html"><span>다음</span><strong>13장: CLI install, run, doctor</strong></a></nav>
+</article>
+</main>
+    </div>
+    <script type="module">
+      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: "base",
+        themeVariables: {
+          background: "#fffdf8",
+          primaryColor: "#f1eee6",
+          primaryTextColor: "#191817",
+          primaryBorderColor: "#d9d1c3",
+          lineColor: "#1f6f8b",
+          secondaryColor: "#e8f0ec",
+          tertiaryColor: "#fff6ed",
+          fontFamily: "Inter, system-ui, sans-serif"
+        }
+      });
+    </script>
+  </body>
+</html>

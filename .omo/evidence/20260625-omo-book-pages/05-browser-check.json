@@ -1,0 +1,72 @@
+{
+  "browser": "system Google Chrome via Playwright",
+  "desktop": [
+    {
+      "path": "/",
+      "title": "목차 | 오마오 플러그인 하니스 해부",
+      "h1": "오마오 플러그인 하니스 해부",
+      "hasForkNote": true,
+      "hasSourceRefs": false,
+      "sourceLinks": 4,
+      "bodyWidth": 1365,
+      "viewportWidth": 1365,
+      "noHorizontalOverflow": true,
+      "mermaidBlocks": 0,
+      "tocLinks": 47
+    },
+    {
+      "path": "/part1/ch01.html",
+      "title": "1장: 오마오의 전체 시스템 토폴로지 | 오마오 플러그인 하니스 해부",
+      "h1": "1장: 오마오의 전체 시스템 토폴로지",
+      "hasForkNote": true,
+      "hasSourceRefs": true,
+      "sourceLinks": 30,
+      "bodyWidth": 1365,
+      "viewportWidth": 1365,
+      "noHorizontalOverflow": true,
+      "mermaidBlocks": 1,
+      "tocLinks": 47
+    },
+    {
+      "path": "/part6/ch26.html",
+      "title": "26장: 모델 capability와 provider 데이터 | 오마오 플러그인 하니스 해부",
+      "h1": "26장: 모델 capability와 provider 데이터",
+      "hasForkNote": true,
+      "hasSourceRefs": true,
+      "sourceLinks": 37,
+      "bodyWidth": 1365,
+      "viewportWidth": 1365,
+      "noHorizontalOverflow": true,
+      "mermaidBlocks": 1,
+      "tocLinks": 47
+    },
+    {
+      "path": "/appendix/h-glossary.html",
+      "title": "부록 H: 용어집 | 오마오 플러그인 하니스 해부",
+      "h1": "부록 H: 용어집",
+      "hasForkNote": true,
+      "hasSourceRefs": false,
+      "sourceLinks": 3,
+      "bodyWidth": 1365,
+      "viewportWidth": 1365,
+      "noHorizontalOverflow": true,
+      "mermaidBlocks": 0,
+      "tocLinks": 47
+    }
+  ],
+  "mobile": {
+    "path": "/part1/ch01.html",
+    "bodyWidth": 395,
+    "viewportWidth": 395,
+    "noHorizontalOverflow": true,
+    "h1": "1장: 오마오의 전체 시스템 토폴로지",
+    "sidebarHeight": 371.359375,
+    "contentTop": 371.359375
+  },
+  "screenshots": [
+    "/tmp/omo-book-index.png",
+    "/tmp/omo-book-ch01.png",
+    "/tmp/omo-book-ch01-mobile.png",
+    "/tmp/omo-book-ch26.png"
+  ]
+}
