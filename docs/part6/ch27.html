@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>27장: 스키마, 마이그레이션, 설정 진단 | 오마오 플러그인 하니스 해부</title>
+    <meta name="description" content="oh-my-openagent 포크를 현재 소스와 함께 읽는 한국어 온라인 책" />
+    <link rel="stylesheet" href="../assets/styles.css" />
+  </head>
+  <body>
+    <div class="layout">
+
+<aside class="sidebar" aria-label="책 목차">
+  <div class="brand">
+    <p class="eyebrow">OMO Source Book</p>
+    <a class="brand-title" href="../index.html">오마오 플러그인 하니스 해부</a>
+    <p class="brand-subtitle">책의 관점을 유지하되 현재 fork의 패키지 리팩터링과 실제 소스 참조를 함께 제공합니다.</p>
+  </div>
+  <nav class="toc-nav">
+    <a class="toc-link" href="../index.html">목차</a>
+    <section class="toc-section"><h2>시작</h2><div class="toc-links"><a class="toc-link" href="../preface.html">서문</a></div></section><section class="toc-section"><h2>제1부: 플러그인은 어디에 시스템 경계를 두는가</h2><div class="toc-links"><a class="toc-link" href="../part1/index.html">부 도입: 코어 위에 얹는 하니스 읽기</a><a class="toc-link" href="../part1/ch01.html">1장: 오마오의 전체 시스템 토폴로지</a><a class="toc-link" href="../part1/ch02.html">2장: 플러그인 엔트리포인트와 5단계 부트스트랩</a><a class="toc-link" href="../part1/ch03.html">3장: 매니저 계층과 런타임 상태</a><a class="toc-link" href="../part1/ch04.html">4장: 도구 레지스트리와 실행 표면</a></div></section><section class="toc-section"><h2>제2부: 대화를 어떻게 정책과 문맥으로 바꾸는가</h2><div class="toc-links"><a class="toc-link" href="../part2/index.html">부 도입: 메시지 바깥의 상태를 키우기</a><a class="toc-link" href="../part2/ch05.html">5장: JSONC 설정 병합과 마이그레이션</a><a class="toc-link" href="../part2/ch06.html">6장: 에이전트 생성과 모델 해상도</a><a class="toc-link" href="../part2/ch07.html">7장: 카테고리, 위임, 하위 에이전트 라우팅</a><a class="toc-link" href="../part2/ch08.html">8장: 컨텍스트 주입과 컴팩션 보존</a><a class="toc-link" href="../part2/ch09.html">9장: continuation과 보조 세션 운영</a></div></section><section class="toc-section"><h2>제3부: OpenCode 표면을 어떻게 플러그인으로 확장하는가</h2><div class="toc-links"><a class="toc-link" href="../part3/index.html">부 도입: 훅 핸들러를 제품 표면으로 읽기</a><a class="toc-link" href="../part3/ch10.html">10장: config 핸들러의 6단계 합성 파이프라인</a><a class="toc-link" href="../part3/ch11.html">11장: chat.message, chat.params, chat.headers</a><a class="toc-link" href="../part3/ch12.html">12장: event 핸들러와 세션 생명주기</a><a class="toc-link" href="../part3/ch13.html">13장: CLI install, run, doctor</a></div></section><section class="toc-section"><h2>제4부: 확장을 어떻게 계약으로 나누는가</h2><div class="toc-links"><a class="toc-link" href="../part4/index.html">부 도입: 에이전트, 스킬, MCP, 명령을 섞지 않기</a><a class="toc-link" href="../part4/ch14.html">14장: 에이전트 확장 계약</a><a class="toc-link" href="../part4/ch15.html">15장: 도구 확장 계약</a><a class="toc-link" href="../part4/ch16.html">16장: 스킬을 지식 계층으로 다루기</a><a class="toc-link" href="../part4/ch17.html">17장: 3계층 MCP와 OAuth</a><a class="toc-link" href="../part4/ch18.html">18장: Claude Code 호환성 브리지</a></div></section><section class="toc-section"><h2>제5부: 위험한 실행을 어떻게 통제 가능한 UX로 바꾸는가</h2><div class="toc-links"><a class="toc-link" href="../part5/index.html">부 도입: 안전성을 플러그인 훅의 상태 모델로 보기</a><a class="toc-link" href="../part5/ch19.html">19장: 훅 티어와 guardrail 아키텍처</a><a class="toc-link" href="../part5/ch20.html">20장: Hashline edit와 파일 수정 의미론</a><a class="toc-link" href="../part5/ch21.html">21장: 백그라운드 에이전트와 tmux 격리</a><a class="toc-link" href="../part5/ch22.html">22장: 모델 fallback과 runtime fallback</a><a class="toc-link" href="../part5/ch23.html">23장: 로그, toast, telemetry, 관찰성</a></div></section><section class="toc-section"><h2>제6부: 복잡한 서브시스템을 어디에 가두는가</h2><div class="toc-links"><a class="toc-link" href="index.html">부 도입: 플러그인의 예외를 별도 모듈에 격리하기</a><a class="toc-link" href="ch24.html">24장: LSP와 AST grep 코드 인텔리전스</a><a class="toc-link" href="ch25.html">25장: 명령, task system, workflow 템플릿</a><a class="toc-link" href="ch26.html">26장: 모델 capability와 provider 데이터</a><a class="toc-link active" href="ch27.html">27장: 스키마, 마이그레이션, 설정 진단</a><a class="toc-link" href="ch28.html">28장: 빌드, 바이너리, 배포 표면</a></div></section><section class="toc-section"><h2>제7부: 무엇을 추출해 자기 플러그인으로 옮길 것인가</h2><div class="toc-links"><a class="toc-link" href="../part7/index.html">부 도입: 저장소 해설을 플러그인 설계 청사진으로 바꾸기</a><a class="toc-link" href="../part7/ch29.html">29장: 오마오가 플러그인 하니스로서 잘하는 것</a><a class="toc-link" href="../part7/ch30.html">30장: 오마오 패턴으로 나만의 OpenCode 플러그인 설계하기</a></div></section><section class="toc-section"><h2>부록</h2><div class="toc-links"><a class="toc-link" href="../appendix/a-file-index.html">부록 A: 주요 파일 인덱스</a><a class="toc-link" href="../appendix/b-prompt-index.html">부록 B: 에이전트, 훅, 도구 인덱스</a><a class="toc-link" href="../appendix/c-config-crosswalk.html">부록 C: 구성 크로스워크</a><a class="toc-link" href="../appendix/d-reading-order.html">부록 D: 추천 독서 경로</a><a class="toc-link" href="../appendix/e-build-recipes.html">부록 E: 빌드와 테스트 명령 모음</a><a class="toc-link" href="../appendix/f-e2e-traces.html">부록 F: 엔드투엔드 사례 추적</a><a class="toc-link" href="../appendix/g-auth-sharing.html">부록 G: 인증, MCP, 외부 서비스</a><a class="toc-link" href="../appendix/h-glossary.html">부록 H: 용어집</a></div></section>
+  </nav>
+  <div class="meta-panel">
+    <p>Fork: <a href="https://github.com/nfbs2000/speaky-oh-my-openagent">nfbs2000/speaky-oh-my-openagent</a></p>
+    <p>Latest source: <a href="https://github.com/nfbs2000/speaky-oh-my-openagent/tree/dev">dev</a></p>
+    <p>Edition snapshot: <a href="https://github.com/nfbs2000/speaky-oh-my-openagent/tree/effa8153ac03076bca9ef860ab49e9eff16251f0">effa8153ac</a></p>
+  </div>
+</aside>
+
+      <main class="content">
+<article class="book-page">
+  <header class="chapter-header">
+    <p class="eyebrow">제6부: 복잡한 서브시스템을 어디에 가두는가</p>
+    <h1>27장: 스키마, 마이그레이션, 설정 진단</h1>
+    <p class="chapter-meta">온라인판은 책의 질문과 해석 순서를 유지하면서 현재 fork의 실제 소스 경로와 링크를 함께 제공합니다.</p>
+  </header>
+  
+<section class="fork-note">
+  <h2>현재 fork 기준 보정</h2>
+  <p>이 온라인판은 원고의 관점과 장 구성을 유지하지만, 현재 <code>speaky-oh-my-openagent</code> 포크의 리팩터링을 기준으로 소스 경로를 보정합니다. 원고의 오래된 <code>src/...</code> 참조는 가능한 경우 <code>packages/omo-opencode/src/...</code>로 해석합니다.</p>
+  <p>루트 <code>src/</code>는 더 이상 canonical source tree가 아니며, OpenCode 어댑터는 <code>packages/omo-opencode/src/</code>, Codex Light edition은 <code>packages/omo-codex/</code>, 공유 core는 <code>packages/*-core/</code>에 분리되어 있습니다.</p>
+</section>
+
+  <div class="markdown-body"><p>오마오 설정은 19개 이상의 feature-specific config를 가진다. 이 정도 규모에서는 schema, migration, doctor가 없으면 설정이 곧 기술 부채가 된다.</p>
+<h2 id="왜-중요한가">왜 중요한가</h2>
+<p>플러그인은 사용자의 로컬 환경에서 실행된다. 잘못된 설정이 있어도 서버 운영자가 고칠 수 없다. 따라서 설정 파일은 스스로 검증되고, 가능한 경우 자동 migration되며, 실패 시 진단 가능해야 한다.</p>
+<h2 id="소스-앵커">소스 앵커</h2>
+<ul><li><a class="source-code" href="https://github.com/nfbs2000/speaky-oh-my-openagent/tree/dev/packages/omo-opencode/src/config/schema"><code>src/config/schema/</code></a></li><li><a class="source-code" href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/dev/packages/omo-opencode/src/plugin-config.ts"><code>src/plugin-config.ts</code></a></li><li><a class="source-code" href="https://github.com/nfbs2000/speaky-oh-my-openagent/tree/dev/packages/omo-opencode/src/shared/migration"><code>src/shared/migration/</code></a></li><li><a class="source-code" href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/dev/packages/omo-opencode/src/shared/migrate-legacy-config-file.ts"><code>src/shared/migrate-legacy-config-file.ts</code></a></li><li><a class="source-code" href="https://github.com/nfbs2000/speaky-oh-my-openagent/tree/dev/packages/omo-opencode/src/cli/doctor"><code>src/cli/doctor/</code></a></li><li><a class="source-code" href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/dev/script/build-schema.ts"><code>script/build-schema.ts</code></a></li></ul>
+<h2 id="설정-안정성-흐름">설정 안정성 흐름</h2>
+<div class="diagram"><pre class="mermaid">flowchart TD
+  RAW[&quot;raw JSONC&quot;]
+  MIG[&quot;migration&quot;]
+  ZOD[&quot;Zod schema&quot;]
+  PART[&quot;partial parse&quot;]
+  ERR[&quot;config load errors&quot;]
+  DOC[&quot;doctor/schema output&quot;]
+
+  RAW --&gt; MIG --&gt; ZOD
+  ZOD --&gt; PART
+  PART --&gt; ERR
+  ZOD --&gt; DOC</pre></div>
+<h2 id="핵심-메커니즘">핵심 메커니즘</h2>
+<p>root schema는 <code>OhMyOpenCodeConfigSchema</code>다. agent definitions, disabled arrays, claude_code, skills, background task, runtime fallback, tmux, websearch 등 기능별 schema를 합친다.</p>
+<p>migration은 idempotent해야 한다. <code>_migrations</code> 기록을 통해 같은 변환이 반복 적용되지 않게 하고, 파일 변경 전 backup을 만드는 구조를 둔다.</p>
+<p>partial parsing은 운영 안정성을 높인다. 한 section이 잘못되어도 나머지 설정을 살릴 수 있다. doctor는 이런 상태를 사용자가 이해할 수 있는 출력으로 바꾸는 표면이다.</p>
+<h2 id="트레이드오프">트레이드오프</h2>
+<p>schema가 세밀할수록 사용자 오류를 빨리 잡지만, 설정 변경 비용도 커진다. migration을 제공하면 호환성은 좋아지지만, 오래된 키의 의미를 계속 유지해야 한다.</p>
+<h2 id="핵심-코드">핵심 코드</h2>
+<p><a class="source-code" href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/dev/packages/omo-opencode/src/config/schema/oh-my-opencode-config.ts"><code>src/config/schema/oh-my-opencode-config.ts</code></a>의 root schema는 플러그인의 설정 표면을 그대로 드러낸다.</p>
+<pre class="code-block"><code class="language-ts">export const OhMyOpenCodeConfigSchema = z.object({
+  $schema: z.string().optional(),
+  new_task_system_enabled: z.boolean().optional(),
+  default_run_agent: z.string().optional(),
+  agent_definitions: AgentDefinitionsConfigSchema,
+  disabled_mcps: z.array(AnyMcpNameSchema).optional(),
+  disabled_agents: z.array(z.string()).optional(),
+  disabled_skills: z.array(BuiltinSkillNameSchema).optional(),
+  disabled_hooks: z.array(z.string()).optional(),
+  disabled_commands: z.array(BuiltinCommandNameSchema).optional(),
+  disabled_tools: z.array(z.string()).optional(),
+  mcp_env_allowlist: z.array(z.string()).optional(),
+  hashline_edit: z.boolean().optional(),
+  model_fallback: z.boolean().optional(),
+  agents: AgentOverridesSchema.optional(),
+  categories: CategoriesConfigSchema.optional(),
+  claude_code: ClaudeCodeConfigSchema.optional(),
+  skills: SkillsConfigSchema.optional(),
+  runtime_fallback: z.union([z.boolean(), RuntimeFallbackConfigSchema]).optional(),
+  background_task: BackgroundTaskConfigSchema.optional(),
+  tmux: TmuxConfigSchema.optional(),
+  start_work: StartWorkConfigSchema.optional(),
+  _migrations: z.array(z.string()).optional(),
+})</code></pre>
+<h2 id="소스-그라운딩">소스 그라운딩</h2>
+<ul><li><code>OhMyOpenCodeConfigSchema</code>는 <code>$schema</code>, <code>new_task_system_enabled</code>, <code>default_run_agent</code>, <code>agent_definitions</code>, disabled arrays, <code>hashline_edit</code>, <code>model_fallback</code>, <code>agents</code>, <code>categories</code>, <code>claude_code</code>, <code>skills</code>, <code>runtime_fallback</code>, <code>background_task</code>, <code>tmux</code>, <code>start_work</code>, <code>_migrations</code> 등을 한 root object로 묶는다.</li><li><code>ExperimentalConfigSchema</code>에는 <code>preemptive_compaction</code>, <code>dynamic_context_pruning</code>, <code>task_system</code>, <code>plugin_load_timeout_ms</code>, <code>safe_hook_creation</code>, <code>disable_omo_env</code>, <code>max_tools</code> 같은 escape hatch가 들어 있다.</li><li><code>TmuxConfigSchema</code>는 <code>enabled</code>, <code>layout</code>, <code>main_pane_size</code>, <code>main_pane_min_width</code>, <code>agent_pane_min_width</code>, <code>isolation</code>을 가진다.</li><li><code>RalphLoopConfigSchema</code>는 <code>enabled</code>, <code>default_max_iterations</code>, <code>default_strategy</code>를 가진다. 반복 실행은 명령뿐 아니라 config schema에도 고정되어 있다.</li><li><code>GitMasterConfigSchema</code>는 <code>commit_footer</code>, <code>include_co_authored_by</code>, <code>git_env_prefix</code>를 default로 가진다. commit 관련 정책도 skill/prompt가 아니라 config로 내려와 있다.</li><li><code>runDoctor()</code>는 모든 check와 system/tool summary를 <code>Promise.race()</code>로 30초 timeout 안에 실행한다. 진단도 hang을 실패로 구조화한다.</li></ul>
+<h2 id="빌더에게-남는-것">빌더에게 남는 것</h2>
+<p>설정이 커지는 순간 schema는 문서가 아니라 실행 경로다. migration, partial parse, doctor, schema build를 함께 갖춰야 사용자의 로컬 환경에서 플러그인이 오래 살아남는다.</p></div>
+  
+<section class="source-references" id="source-references">
+  <h2>이 장의 실제 소스 참조</h2>
+  <p>본문의 코드 경로 중 현재 fork에 존재하는 항목만 실제 GitHub 소스로 연결했습니다. <code>Latest</code>는 <code>dev</code>, <code>Edition</code>은 이 온라인판 생성 시점의 snapshot입니다.</p>
+  
+<div class="table-wrap source-table">
+  <table>
+    <thead><tr><th>원고 경로</th><th>현재 fork 경로</th><th>링크</th></tr></thead>
+    <tbody><tr><td><code>src/cli/doctor</code></td><td><code>packages/omo-opencode/src/cli/doctor</code></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/tree/dev/packages/omo-opencode/src/cli/doctor">Latest</a></td></tr><tr><td><code>src/config/schema</code></td><td><code>packages/omo-opencode/src/config/schema</code></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/tree/dev/packages/omo-opencode/src/config/schema">Latest</a></td></tr><tr><td><code>src/config/schema/oh-my-opencode-config.ts</code></td><td><code>packages/omo-opencode/src/config/schema/oh-my-opencode-config.ts</code></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/dev/packages/omo-opencode/src/config/schema/oh-my-opencode-config.ts">Latest</a></td></tr><tr><td><code>src/plugin-config.ts</code></td><td><code>packages/omo-opencode/src/plugin-config.ts</code></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/dev/packages/omo-opencode/src/plugin-config.ts">Latest</a></td></tr><tr><td><code>src/shared/migrate-legacy-config-file.ts</code></td><td><code>packages/omo-opencode/src/shared/migrate-legacy-config-file.ts</code></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/dev/packages/omo-opencode/src/shared/migrate-legacy-config-file.ts">Latest</a></td></tr><tr><td><code>src/shared/migration</code></td><td><code>packages/omo-opencode/src/shared/migration</code></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/tree/dev/packages/omo-opencode/src/shared/migration">Latest</a></td></tr></tbody>
+  </table>
+</div>
+
+  
+<div class="table-wrap source-table">
+  <table>
+    <thead><tr><th>경로</th><th>Latest</th><th>Edition</th></tr></thead>
+    <tbody><tr><td><code>packages/omo-opencode/src/cli/doctor</code></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/tree/dev/packages/omo-opencode/src/cli/doctor">Latest</a></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/tree/effa8153ac03076bca9ef860ab49e9eff16251f0/packages/omo-opencode/src/cli/doctor">Edition</a></td></tr><tr><td><code>packages/omo-opencode/src/config/schema</code></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/tree/dev/packages/omo-opencode/src/config/schema">Latest</a></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/tree/effa8153ac03076bca9ef860ab49e9eff16251f0/packages/omo-opencode/src/config/schema">Edition</a></td></tr><tr><td><code>packages/omo-opencode/src/config/schema/oh-my-opencode-config.ts</code></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/dev/packages/omo-opencode/src/config/schema/oh-my-opencode-config.ts">Latest</a></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/effa8153ac03076bca9ef860ab49e9eff16251f0/packages/omo-opencode/src/config/schema/oh-my-opencode-config.ts">Edition</a></td></tr><tr><td><code>packages/omo-opencode/src/plugin-config.ts</code></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/dev/packages/omo-opencode/src/plugin-config.ts">Latest</a></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/effa8153ac03076bca9ef860ab49e9eff16251f0/packages/omo-opencode/src/plugin-config.ts">Edition</a></td></tr><tr><td><code>packages/omo-opencode/src/shared/migrate-legacy-config-file.ts</code></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/dev/packages/omo-opencode/src/shared/migrate-legacy-config-file.ts">Latest</a></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/effa8153ac03076bca9ef860ab49e9eff16251f0/packages/omo-opencode/src/shared/migrate-legacy-config-file.ts">Edition</a></td></tr><tr><td><code>packages/omo-opencode/src/shared/migration</code></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/tree/dev/packages/omo-opencode/src/shared/migration">Latest</a></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/tree/effa8153ac03076bca9ef860ab49e9eff16251f0/packages/omo-opencode/src/shared/migration">Edition</a></td></tr><tr><td><code>script/build-schema.ts</code></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/dev/script/build-schema.ts">Latest</a></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/effa8153ac03076bca9ef860ab49e9eff16251f0/script/build-schema.ts">Edition</a></td></tr></tbody>
+  </table>
+</div>
+
+  
+</section>
+
+  <nav class="chapter-nav" aria-label="장 이동"><a class="nav-card" href="ch26.html"><span>이전</span><strong>26장: 모델 capability와 provider 데이터</strong></a><a class="nav-card" href="ch28.html"><span>다음</span><strong>28장: 빌드, 바이너리, 배포 표면</strong></a></nav>
+</article>
+</main>
+    </div>
+    <script type="module">
+      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: "base",
+        themeVariables: {
+          background: "#fffdf8",
+          primaryColor: "#f1eee6",
+          primaryTextColor: "#191817",
+          primaryBorderColor: "#d9d1c3",
+          lineColor: "#1f6f8b",
+          secondaryColor: "#e8f0ec",
+          tertiaryColor: "#fff6ed",
+          fontFamily: "Inter, system-ui, sans-serif"
+        }
+      });
+    </script>
+  </body>
+</html>

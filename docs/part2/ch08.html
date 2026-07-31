@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>8장: 컨텍스트 주입과 컴팩션 보존 | 오마오 플러그인 하니스 해부</title>
+    <meta name="description" content="oh-my-openagent 포크를 현재 소스와 함께 읽는 한국어 온라인 책" />
+    <link rel="stylesheet" href="../assets/styles.css" />
+  </head>
+  <body>
+    <div class="layout">
+
+<aside class="sidebar" aria-label="책 목차">
+  <div class="brand">
+    <p class="eyebrow">OMO Source Book</p>
+    <a class="brand-title" href="../index.html">오마오 플러그인 하니스 해부</a>
+    <p class="brand-subtitle">책의 관점을 유지하되 현재 fork의 패키지 리팩터링과 실제 소스 참조를 함께 제공합니다.</p>
+  </div>
+  <nav class="toc-nav">
+    <a class="toc-link" href="../index.html">목차</a>
+    <section class="toc-section"><h2>시작</h2><div class="toc-links"><a class="toc-link" href="../preface.html">서문</a></div></section><section class="toc-section"><h2>제1부: 플러그인은 어디에 시스템 경계를 두는가</h2><div class="toc-links"><a class="toc-link" href="../part1/index.html">부 도입: 코어 위에 얹는 하니스 읽기</a><a class="toc-link" href="../part1/ch01.html">1장: 오마오의 전체 시스템 토폴로지</a><a class="toc-link" href="../part1/ch02.html">2장: 플러그인 엔트리포인트와 5단계 부트스트랩</a><a class="toc-link" href="../part1/ch03.html">3장: 매니저 계층과 런타임 상태</a><a class="toc-link" href="../part1/ch04.html">4장: 도구 레지스트리와 실행 표면</a></div></section><section class="toc-section"><h2>제2부: 대화를 어떻게 정책과 문맥으로 바꾸는가</h2><div class="toc-links"><a class="toc-link" href="index.html">부 도입: 메시지 바깥의 상태를 키우기</a><a class="toc-link" href="ch05.html">5장: JSONC 설정 병합과 마이그레이션</a><a class="toc-link" href="ch06.html">6장: 에이전트 생성과 모델 해상도</a><a class="toc-link" href="ch07.html">7장: 카테고리, 위임, 하위 에이전트 라우팅</a><a class="toc-link active" href="ch08.html">8장: 컨텍스트 주입과 컴팩션 보존</a><a class="toc-link" href="ch09.html">9장: continuation과 보조 세션 운영</a></div></section><section class="toc-section"><h2>제3부: OpenCode 표면을 어떻게 플러그인으로 확장하는가</h2><div class="toc-links"><a class="toc-link" href="../part3/index.html">부 도입: 훅 핸들러를 제품 표면으로 읽기</a><a class="toc-link" href="../part3/ch10.html">10장: config 핸들러의 6단계 합성 파이프라인</a><a class="toc-link" href="../part3/ch11.html">11장: chat.message, chat.params, chat.headers</a><a class="toc-link" href="../part3/ch12.html">12장: event 핸들러와 세션 생명주기</a><a class="toc-link" href="../part3/ch13.html">13장: CLI install, run, doctor</a></div></section><section class="toc-section"><h2>제4부: 확장을 어떻게 계약으로 나누는가</h2><div class="toc-links"><a class="toc-link" href="../part4/index.html">부 도입: 에이전트, 스킬, MCP, 명령을 섞지 않기</a><a class="toc-link" href="../part4/ch14.html">14장: 에이전트 확장 계약</a><a class="toc-link" href="../part4/ch15.html">15장: 도구 확장 계약</a><a class="toc-link" href="../part4/ch16.html">16장: 스킬을 지식 계층으로 다루기</a><a class="toc-link" href="../part4/ch17.html">17장: 3계층 MCP와 OAuth</a><a class="toc-link" href="../part4/ch18.html">18장: Claude Code 호환성 브리지</a></div></section><section class="toc-section"><h2>제5부: 위험한 실행을 어떻게 통제 가능한 UX로 바꾸는가</h2><div class="toc-links"><a class="toc-link" href="../part5/index.html">부 도입: 안전성을 플러그인 훅의 상태 모델로 보기</a><a class="toc-link" href="../part5/ch19.html">19장: 훅 티어와 guardrail 아키텍처</a><a class="toc-link" href="../part5/ch20.html">20장: Hashline edit와 파일 수정 의미론</a><a class="toc-link" href="../part5/ch21.html">21장: 백그라운드 에이전트와 tmux 격리</a><a class="toc-link" href="../part5/ch22.html">22장: 모델 fallback과 runtime fallback</a><a class="toc-link" href="../part5/ch23.html">23장: 로그, toast, telemetry, 관찰성</a></div></section><section class="toc-section"><h2>제6부: 복잡한 서브시스템을 어디에 가두는가</h2><div class="toc-links"><a class="toc-link" href="../part6/index.html">부 도입: 플러그인의 예외를 별도 모듈에 격리하기</a><a class="toc-link" href="../part6/ch24.html">24장: LSP와 AST grep 코드 인텔리전스</a><a class="toc-link" href="../part6/ch25.html">25장: 명령, task system, workflow 템플릿</a><a class="toc-link" href="../part6/ch26.html">26장: 모델 capability와 provider 데이터</a><a class="toc-link" href="../part6/ch27.html">27장: 스키마, 마이그레이션, 설정 진단</a><a class="toc-link" href="../part6/ch28.html">28장: 빌드, 바이너리, 배포 표면</a></div></section><section class="toc-section"><h2>제7부: 무엇을 추출해 자기 플러그인으로 옮길 것인가</h2><div class="toc-links"><a class="toc-link" href="../part7/index.html">부 도입: 저장소 해설을 플러그인 설계 청사진으로 바꾸기</a><a class="toc-link" href="../part7/ch29.html">29장: 오마오가 플러그인 하니스로서 잘하는 것</a><a class="toc-link" href="../part7/ch30.html">30장: 오마오 패턴으로 나만의 OpenCode 플러그인 설계하기</a></div></section><section class="toc-section"><h2>부록</h2><div class="toc-links"><a class="toc-link" href="../appendix/a-file-index.html">부록 A: 주요 파일 인덱스</a><a class="toc-link" href="../appendix/b-prompt-index.html">부록 B: 에이전트, 훅, 도구 인덱스</a><a class="toc-link" href="../appendix/c-config-crosswalk.html">부록 C: 구성 크로스워크</a><a class="toc-link" href="../appendix/d-reading-order.html">부록 D: 추천 독서 경로</a><a class="toc-link" href="../appendix/e-build-recipes.html">부록 E: 빌드와 테스트 명령 모음</a><a class="toc-link" href="../appendix/f-e2e-traces.html">부록 F: 엔드투엔드 사례 추적</a><a class="toc-link" href="../appendix/g-auth-sharing.html">부록 G: 인증, MCP, 외부 서비스</a><a class="toc-link" href="../appendix/h-glossary.html">부록 H: 용어집</a></div></section>
+  </nav>
+  <div class="meta-panel">
+    <p>Fork: <a href="https://github.com/nfbs2000/speaky-oh-my-openagent">nfbs2000/speaky-oh-my-openagent</a></p>
+    <p>Latest source: <a href="https://github.com/nfbs2000/speaky-oh-my-openagent/tree/dev">dev</a></p>
+    <p>Edition snapshot: <a href="https://github.com/nfbs2000/speaky-oh-my-openagent/tree/effa8153ac03076bca9ef860ab49e9eff16251f0">effa8153ac</a></p>
+  </div>
+</aside>
+
+      <main class="content">
+<article class="book-page">
+  <header class="chapter-header">
+    <p class="eyebrow">제2부: 대화를 어떻게 정책과 문맥으로 바꾸는가</p>
+    <h1>8장: 컨텍스트 주입과 컴팩션 보존</h1>
+    <p class="chapter-meta">온라인판은 책의 질문과 해석 순서를 유지하면서 현재 fork의 실제 소스 경로와 링크를 함께 제공합니다.</p>
+  </header>
+  
+<section class="fork-note">
+  <h2>현재 fork 기준 보정</h2>
+  <p>이 온라인판은 원고의 관점과 장 구성을 유지하지만, 현재 <code>speaky-oh-my-openagent</code> 포크의 리팩터링을 기준으로 소스 경로를 보정합니다. 원고의 오래된 <code>src/...</code> 참조는 가능한 경우 <code>packages/omo-opencode/src/...</code>로 해석합니다.</p>
+  <p>루트 <code>src/</code>는 더 이상 canonical source tree가 아니며, OpenCode 어댑터는 <code>packages/omo-opencode/src/</code>, Codex Light edition은 <code>packages/omo-codex/</code>, 공유 core는 <code>packages/*-core/</code>에 분리되어 있습니다.</p>
+</section>
+
+  <div class="markdown-body"><p>대화가 길어지면 중요한 문맥은 사라진다. 오마오는 이 문제를 OpenCode의 transform hook과 compaction hook으로 다룬다. 문맥을 단순히 더 많이 넣는 것이 아니라, 수집하고 주입하고 compaction 시점에 다시 보존한다.</p>
+<h2 id="왜-중요한가">왜 중요한가</h2>
+<p>플러그인은 모든 메시지를 영구히 들고 있을 수 없다. 하지만 agent orchestration, keyword detection, rules injection, todo preservation 같은 기능은 이전 상태를 알아야 한다. 그래서 오마오는 메시지 변환 계층과 compaction 계층을 따로 둔다.</p>
+<h2 id="소스-앵커">소스 앵커</h2>
+<ul><li><a class="source-code" href="https://github.com/nfbs2000/speaky-oh-my-openagent/tree/dev/packages/omo-opencode/src/features/context-injector"><code>src/features/context-injector/</code></a></li><li><a class="source-code" href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/dev/packages/omo-opencode/src/plugin/hooks/create-transform-hooks.ts"><code>src/plugin/hooks/create-transform-hooks.ts</code></a></li><li><a class="source-code" href="https://github.com/nfbs2000/speaky-oh-my-openagent/tree/dev/packages/omo-opencode/src/hooks/compaction-context-injector"><code>src/hooks/compaction-context-injector/</code></a></li><li><a class="source-code" href="https://github.com/nfbs2000/speaky-oh-my-openagent/tree/dev/packages/omo-opencode/src/hooks/compaction-todo-preserver"><code>src/hooks/compaction-todo-preserver/</code></a></li><li><a class="source-code" href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/dev/packages/omo-opencode/src/index.compacting.test.ts"><code>src/index.compacting.test.ts</code></a></li><li><a class="source-code" href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/dev/packages/omo-opencode/src/plugin/messages-transform.ts"><code>src/plugin/messages-transform.ts</code></a></li></ul>
+<h2 id="문맥-흐름">문맥 흐름</h2>
+<div class="diagram"><pre class="mermaid">flowchart TD
+  MSG[&quot;chat messages&quot;]
+  COL[&quot;contextCollector&quot;]
+  KW[&quot;keywordDetector&quot;]
+  INJ[&quot;messages transform injector&quot;]
+  CMP[&quot;experimental.session.compacting&quot;]
+  KEEP[&quot;preserved context&quot;]
+
+  MSG --&gt; COL
+  KW --&gt; COL
+  COL --&gt; INJ
+  COL --&gt; CMP
+  CMP --&gt; KEEP</pre></div>
+<h2 id="핵심-메커니즘">핵심 메커니즘</h2>
+<p><code>createTransformHooks</code>는 Claude Code hooks, keyword detector, context injector, thinking block validator, tool pair validator를 만든다. 여기서 <code>contextCollector</code>가 공유된다. keyword detection이 수집한 정보는 이후 messages transform에서 다시 주입될 수 있다.</p>
+<p><code>experimental.session.compacting</code>은 <a class="source-code" href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/dev/packages/omo-opencode/src/index.ts"><code>src/index.ts</code></a>에서 별도로 감싼다. compaction context injector와 todo preserver가 sessionID별로 capture를 수행하고, Claude Code hook도 같은 이벤트에 개입할 수 있다. 이후 injector가 만든 context를 output에 추가한다.</p>
+<p>이 구조는 compaction을 &quot;OpenCode가 알아서 하는 일&quot;로만 보지 않는다. 플러그인이 만든 상태 중 사라지면 안 되는 것을 compaction output에 다시 실어 보내는 경계로 본다.</p>
+<h2 id="트레이드오프">트레이드오프</h2>
+<p>문맥 주입은 강력하지만 과하면 모델 입력을 흐린다. 그래서 오마오는 keyword, rules, directory info, todo 같은 목적별 hook으로 나누고, 모든 것을 하나의 context blob에 넣지 않는다.</p>
+<h2 id="핵심-코드">핵심 코드</h2>
+<p><a class="source-code" href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/dev/packages/omo-opencode/src/plugin/hooks/create-transform-hooks.ts"><code>src/plugin/hooks/create-transform-hooks.ts</code></a>에서 transform 계층은 shared collector를 중심으로 만들어진다.</p>
+<pre class="code-block"><code class="language-ts">const claudeCodeHooks = isHookEnabled(&quot;claude-code-hooks&quot;)
+  ? safeCreateHook(
+      &quot;claude-code-hooks&quot;,
+      () =&gt;
+        createClaudeCodeHooksHook(
+          ctx,
+          {
+            disabledHooks: (pluginConfig.claude_code?.hooks ?? true)
+              ? undefined
+              : true,
+            keywordDetectorDisabled: !isHookEnabled(&quot;keyword-detector&quot;),
+          },
+          contextCollector,
+        ),
+      { enabled: safeHookEnabled },
+    )
+  : null
+
+const keywordDetector = isHookEnabled(&quot;keyword-detector&quot;)
+  ? safeCreateHook(
+      &quot;keyword-detector&quot;,
+      () =&gt; createKeywordDetectorHook(ctx, contextCollector, ralphLoop ?? undefined),
+      { enabled: safeHookEnabled },
+    )
+  : null
+
+const contextInjectorMessagesTransform =
+  createContextInjectorMessagesTransformHook(contextCollector)</code></pre>
+<h2 id="소스-그라운딩">소스 그라운딩</h2>
+<ul><li><code>createTransformHooks()</code>는 <code>contextCollector</code>를 <code>createClaudeCodeHooksHook()</code>, <code>createKeywordDetectorHook()</code>, <code>createContextInjectorMessagesTransformHook()</code>에 공유한다.</li><li><code>contextInjectorMessagesTransform</code>는 disabled hook 여부와 상관없이 만들어진다. 수집된 context를 messages transform에서 사용할 기본 통로다.</li><li><a class="source-code" href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/dev/packages/omo-opencode/src/index.ts"><code>src/index.ts</code></a>의 <code>experimental.session.compacting</code>은 <code>compactionContextInjector.capture()</code>, <code>compactionTodoPreserver.capture()</code>, Claude Code compacting hook, <code>inject()</code> 순서로 실행된다.</li><li><code>compactionContextInjector</code>는 background manager를 입력으로 받아 하위 작업 상태를 compaction context에 반영할 수 있다.</li><li><code>compactionTodoPreserver</code>는 ctx만 받아 별도 hook으로 만들어진다. todo 보존은 context 수집과 다른 책임으로 분리되어 있다.</li></ul>
+<h2 id="빌더에게-남는-것">빌더에게 남는 것</h2>
+<p>긴 대화를 다루는 플러그인은 compaction을 설계해야 한다. 주입할 문맥, 버릴 문맥, compaction 때 재구성할 문맥을 나누지 않으면 장기 세션에서 기능이 조용히 무너진다.</p></div>
+  
+<section class="source-references" id="source-references">
+  <h2>이 장의 실제 소스 참조</h2>
+  <p>본문의 코드 경로 중 현재 fork에 존재하는 항목만 실제 GitHub 소스로 연결했습니다. <code>Latest</code>는 <code>dev</code>, <code>Edition</code>은 이 온라인판 생성 시점의 snapshot입니다.</p>
+  
+<div class="table-wrap source-table">
+  <table>
+    <thead><tr><th>원고 경로</th><th>현재 fork 경로</th><th>링크</th></tr></thead>
+    <tbody><tr><td><code>src/features/context-injector</code></td><td><code>packages/omo-opencode/src/features/context-injector</code></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/tree/dev/packages/omo-opencode/src/features/context-injector">Latest</a></td></tr><tr><td><code>src/hooks/compaction-context-injector</code></td><td><code>packages/omo-opencode/src/hooks/compaction-context-injector</code></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/tree/dev/packages/omo-opencode/src/hooks/compaction-context-injector">Latest</a></td></tr><tr><td><code>src/hooks/compaction-todo-preserver</code></td><td><code>packages/omo-opencode/src/hooks/compaction-todo-preserver</code></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/tree/dev/packages/omo-opencode/src/hooks/compaction-todo-preserver">Latest</a></td></tr><tr><td><code>src/index.compacting.test.ts</code></td><td><code>packages/omo-opencode/src/index.compacting.test.ts</code></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/dev/packages/omo-opencode/src/index.compacting.test.ts">Latest</a></td></tr><tr><td><code>src/index.ts</code></td><td><code>packages/omo-opencode/src/index.ts</code></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/dev/packages/omo-opencode/src/index.ts">Latest</a></td></tr><tr><td><code>src/plugin/hooks/create-transform-hooks.ts</code></td><td><code>packages/omo-opencode/src/plugin/hooks/create-transform-hooks.ts</code></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/dev/packages/omo-opencode/src/plugin/hooks/create-transform-hooks.ts">Latest</a></td></tr><tr><td><code>src/plugin/messages-transform.ts</code></td><td><code>packages/omo-opencode/src/plugin/messages-transform.ts</code></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/dev/packages/omo-opencode/src/plugin/messages-transform.ts">Latest</a></td></tr></tbody>
+  </table>
+</div>
+
+  
+<div class="table-wrap source-table">
+  <table>
+    <thead><tr><th>경로</th><th>Latest</th><th>Edition</th></tr></thead>
+    <tbody><tr><td><code>packages/omo-opencode/src/features/context-injector</code></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/tree/dev/packages/omo-opencode/src/features/context-injector">Latest</a></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/tree/effa8153ac03076bca9ef860ab49e9eff16251f0/packages/omo-opencode/src/features/context-injector">Edition</a></td></tr><tr><td><code>packages/omo-opencode/src/hooks/compaction-context-injector</code></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/tree/dev/packages/omo-opencode/src/hooks/compaction-context-injector">Latest</a></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/tree/effa8153ac03076bca9ef860ab49e9eff16251f0/packages/omo-opencode/src/hooks/compaction-context-injector">Edition</a></td></tr><tr><td><code>packages/omo-opencode/src/hooks/compaction-todo-preserver</code></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/tree/dev/packages/omo-opencode/src/hooks/compaction-todo-preserver">Latest</a></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/tree/effa8153ac03076bca9ef860ab49e9eff16251f0/packages/omo-opencode/src/hooks/compaction-todo-preserver">Edition</a></td></tr><tr><td><code>packages/omo-opencode/src/index.compacting.test.ts</code></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/dev/packages/omo-opencode/src/index.compacting.test.ts">Latest</a></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/effa8153ac03076bca9ef860ab49e9eff16251f0/packages/omo-opencode/src/index.compacting.test.ts">Edition</a></td></tr><tr><td><code>packages/omo-opencode/src/index.ts</code></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/dev/packages/omo-opencode/src/index.ts">Latest</a></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/effa8153ac03076bca9ef860ab49e9eff16251f0/packages/omo-opencode/src/index.ts">Edition</a></td></tr><tr><td><code>packages/omo-opencode/src/plugin/hooks/create-transform-hooks.ts</code></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/dev/packages/omo-opencode/src/plugin/hooks/create-transform-hooks.ts">Latest</a></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/effa8153ac03076bca9ef860ab49e9eff16251f0/packages/omo-opencode/src/plugin/hooks/create-transform-hooks.ts">Edition</a></td></tr><tr><td><code>packages/omo-opencode/src/plugin/messages-transform.ts</code></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/dev/packages/omo-opencode/src/plugin/messages-transform.ts">Latest</a></td><td><a href="https://github.com/nfbs2000/speaky-oh-my-openagent/blob/effa8153ac03076bca9ef860ab49e9eff16251f0/packages/omo-opencode/src/plugin/messages-transform.ts">Edition</a></td></tr></tbody>
+  </table>
+</div>
+
+  
+</section>
+
+  <nav class="chapter-nav" aria-label="장 이동"><a class="nav-card" href="ch07.html"><span>이전</span><strong>7장: 카테고리, 위임, 하위 에이전트 라우팅</strong></a><a class="nav-card" href="ch09.html"><span>다음</span><strong>9장: continuation과 보조 세션 운영</strong></a></nav>
+</article>
+</main>
+    </div>
+    <script type="module">
+      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: "base",
+        themeVariables: {
+          background: "#fffdf8",
+          primaryColor: "#f1eee6",
+          primaryTextColor: "#191817",
+          primaryBorderColor: "#d9d1c3",
+          lineColor: "#1f6f8b",
+          secondaryColor: "#e8f0ec",
+          tertiaryColor: "#fff6ed",
+          fontFamily: "Inter, system-ui, sans-serif"
+        }
+      });
+    </script>
+  </body>
+</html>
